@@ -41,3 +41,13 @@ def getAll():
         for data in curs.fetchall():
             d.append({'uid': data[0], 'code': data[1]})
         return d
+
+def getAllUserInfos():
+    d = []
+    with sqlite3.connect('code.sqlite3') as c:
+        curs = c.cursor()
+        curs.execute('SELECT code_id,code,language,ip_address,web_browser,last_update FROM user_infos ORDER BY id DESC')
+        for data in curs.fetchall():
+            d.append({'code_id': data[0], 'code': data[1], 'language': data[2], 'ip_address': data[3],
+                    'web_browser': data[4], 'last_update': data[5]})
+        return d
