@@ -8,11 +8,17 @@
 		{% if uid %}
 		<p align=left><a href="/view/{{ uid }}">View only code: {{ uid }}</a>
 		<p align=left>URL: <input name='url' value="{{ url }}">
-
 		{% endif %}
 		<p align=center>
 		<form method="POST" action="/publish" enctypwe="multipart/form-data">
 			<table>
+				<select name="language" size="1">
+					<option value="python"{% if 'python' == language %} selected {% endif %}>Python</option>
+					<option value="java"{% if 'java' == language %} selected {% endif %}>Java</option>
+					<option value="php"{% if 'php' == language %} selected {% endif %}>Php</option>
+					<option value="c"{% if 'c' == language %} selected {% endif %}>C</option>
+					<option value="JavaScript"{% if 'js' == language %} selected {% endif %}>JavaScript</option>
+				</select>
 				<tr>
 					<td>
 						<textarea name="code" rows=20 cols=100>{{ code }}</textarea><br/>
@@ -23,12 +29,6 @@
 						<button type="submit" name="submit" value="view">Save &amp; View</button>
 					</td>
 				</tr>
-				<select name="language" size="1">
-					<option value="py"{% if 'py' == language %} selected {% endif %}>Python</option>
-					<option value="ja"{% if 'ja' == language %} selected {% endif %}>Java</option>
-					<option value="php"{% if 'php' == language %} selected {% endif %}>Php</option>
-					<option value="c"{% if 'c' == language %} selected {% endif %}>C</option>
-				</select>
 			</table>
 		</form>
     </body>

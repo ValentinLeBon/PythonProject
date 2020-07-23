@@ -20,7 +20,7 @@ def index():
 @app.route('/create')
 def create():
     uid = save_doc_as_file()
-    save_lang_as_file(uid)
+    #save_lang_as_file(uid)
     return redirect("{}edit/{}".format(request.host_url,uid))
     
 @app.route('/edit/<string:uid>/')
